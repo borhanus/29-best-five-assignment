@@ -28,7 +28,7 @@
     </header>
     <main class="container mx-auto text-white mb-32">
         <section class="grid grid-cols-4 gap-8">
-            <article class="col-span-3 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+            <article id="playerBtn" class="col-span-3 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
                 <div class="border-2 border-gray-600 text-center">
                     <img class="block mx-auto" src="images/Lionel Messi.png" alt="">
                     <div class="p-5 grid gap-1 bg-slate-800">
@@ -40,7 +40,7 @@
                 <div class="border-2 border-gray-600 text-center">
                     <img class="block mx-auto" src="images/Cristiano-Ronaldo.png" alt="">
                     <div class="p-5 grid gap-1 bg-slate-800">
-                        <h3>Cristiano-Ronaldo</h3>
+                        <h3>Cristiano Ronaldo</h3>
                         <p class="pb-3">32 Goals | 80 Assist</p>
                         <button class="px-16 py-2 bg-blue-700 hover:bg-blue-800 block mx-auto">SELECT</button>
                     </div>
@@ -48,7 +48,7 @@
                 <div class="border-2 border-gray-600 text-center">
                     <img class="block mx-auto" src="images/Luka-Modrić.png" alt="">
                     <div class="p-5 grid gap-1 bg-slate-800">
-                        <h3>Luka-Modrić</h3>
+                        <h3>Luka Modrić</h3>
                         <p class="pb-3">26 Goals | 64 Assist</p>
                         <button class="px-16 py-2 bg-blue-700 hover:bg-blue-800 block mx-auto">SELECT</button>
                     </div>
@@ -106,28 +106,33 @@
             <aside class="col-span-1">
                 <div class="p-8 bg-slate-800 mb-10">
                     <h2 class="text-3xl font-semibold text-center pb-10">Selected - V</h2>
-                    <ol class="grid gap-4 list-decimal pl-10 pb-12 font-semibold">
-                        <li>Lionel Messi</li>
+                    <ol id="selectedV" class="grid gap-4 list-decimal pl-10 pb-12 font-semibold">
+                        <!-- <li>Lionel Messi</li>
                         <li>Neymar Jr</li>
                         <li>Mohamed Salah</li>
                         <li>Luka-Modrić</li>
-                        <li>Cristiano-Ronaldo</li>
+                        <li>Cristiano-Ronaldo</li> -->
+                        <!-- <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li> -->
                     </ol>
                 </div>
                 <div class="p-8 bg-slate-800 grid grid-cols-2 gap-6 items-center">
                     <h2 class="text-3xl text-center pb-4 col-span-2 font-semibold">Budget</h2>
                     <label class="" for="">Per Player</label>
-                    <input value="1000" class="bg-transparent border-2 p-1 pl-2" type="number">
-                    <button class="py-2 col-span-2 bg-blue-700 hover:bg-blue-800">Calculate</button>
+                    <input id="perPlayerField" value="0" class="bg-transparent border-2 p-1 pl-2" type="number">
+                    <button id="calulateBtn" class="py-2 col-span-2 bg-blue-700 hover:bg-blue-800">Calculate</button>
                     <label class="" for="">Player Expenses</label>
-                    <p class="text-right">$<span>5000</span></p>
+                    <p class="text-right">$<span id="playerExpenses">0</span></p>
                     <label class="" for="">Manager</label>
-                    <input value="2000" class="bg-transparent border-2 p-1 pl-2" type="number">
+                    <input id="managerField" value="0" class="bg-transparent border-2 p-1 pl-2" type="number">
                     <label class="" for="">Coach</label>
-                    <input value="4000" class="bg-transparent border-2 p-1 pl-2" type="number">
-                    <button class="py-2 font-normal col-span-2 bg-blue-700 hover:bg-blue-800">Calculate Total</button>
+                    <input id="coachField" value="0" class="bg-transparent border-2 p-1 pl-2" type="number">
+                    <button id="calulateTotalBtn" class="py-2 font-normal col-span-2 bg-blue-700 hover:bg-blue-800">Calculate Total</button>
                     <label class="" for="">Total</label>
-                    <p class="text-right text-orange-500 font-semibold">$<span>11000</span></p>
+                    <p class="text-right text-orange-500 font-semibold">$<span id="total">0</span></p>
                 </div>
             </aside>
         </section>

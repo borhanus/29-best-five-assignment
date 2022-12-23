@@ -1,11 +1,9 @@
 document.getElementById('calulateBtn').addEventListener('click', function () {
-    const selectedV = document.getElementById('selectedV').getElementsByTagName('li').length;
+    const selectedV = lengthOfParent('selectedV', 'li');
     const perPlayerField = getInputFieldValue('perPlayerField');
     let playerExpenses = selectedV * perPlayerField;
 
     setInnerText('playerExpenses', playerExpenses);
-    // setInnerText('total', 0);
-
 })
 
 document.getElementById('calulateTotalBtn').addEventListener('click', function () {
@@ -20,19 +18,29 @@ document.getElementById('calulateTotalBtn').addEventListener('click', function (
 const players = document.querySelectorAll('#playerBtn .border-2 .p-5');
 for (const player of players) {
     player.childNodes[5].addEventListener('click', function () {
-        const selectedVLength = document.getElementById('selectedV').getElementsByTagName('li').length;
-        if(selectedVLength===5){
+        const selectVNoticeLength = lengthOfParent('selectedV', 'span');
+        if (selectVNoticeLength === 1) {
+            document.getElementById('selectNotice').remove();
+        }
+
+        const selectedVLength = lengthOfParent('selectedV', 'li');
+        if (selectedVLength === 5) {
             return;
         }
+
         const selectedV = document.getElementById('selectedV');
         const newChild = document.createElement('li');
         const playerName = player.childNodes[1].innerText;
         newChild.innerText = playerName;
 
+        const selectedVChilds = document.querySelectorAll('#selectedV li');
+        for (const child of selectedVChilds) {
+            if (child.innerText === playerName) {
+                alert('Already Selected Player');
+                return;
+            }
+        }
         selectedV.appendChild(newChild);
-        // selectedV.unshift(newChild);
-        // insertBefore(newChild, selectedV.firstChild);
-        console.log(selectedV);
     })
 }
 

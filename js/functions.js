@@ -10,3 +10,6 @@ function setInnerText(idName, value) {
     const element = document.getElementById(idName);
     element.innerText = value;
 }
+function lengthOfParent(idName, childName){
+    return document.getElementById(idName).getElementsByTagName(childName).length;
+}

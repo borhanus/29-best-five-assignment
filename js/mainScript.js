@@ -1,8 +1,18 @@
 document.getElementById('calulateBtn').addEventListener('click', function () {
     const selectedV = lengthOfParent('selectedV', 'li');
     const perPlayerField = getInputFieldValue('perPlayerField');
-    let playerExpenses = selectedV * perPlayerField;
+    const selectedVLength = lengthOfParent('selectedV', 'li');
+    
+    if(isNaN(perPlayerField) || perPlayerField <= 0){
+        alert('Please add valid input (NO: 0, -, abc)');
+        return;
+    }
+    else if(selectedVLength < 1){
+        alert('Select at least one player');
+        return;
+    }
 
+    let playerExpenses = selectedV * perPlayerField;
     setInnerText('playerExpenses', playerExpenses);
 })
 
@@ -10,8 +20,13 @@ document.getElementById('calulateTotalBtn').addEventListener('click', function (
     const playerExpenses = getElementInnerText('playerExpenses');
     const managerField = getInputFieldValue('managerField');
     const coachField = getInputFieldValue('coachField');
-    let total = playerExpenses + managerField + coachField;
 
+    if(isNaN(managerField) || isNaN(coachField) || managerField < 0 || coachField < 0){
+        alert('Please add valid input (NO: -, abc)');
+        return;
+    }
+
+    let total = playerExpenses + managerField + coachField;
     setInnerText('total', total);
 })
 
@@ -43,6 +58,12 @@ for (const player of players) {
         selectedV.appendChild(newChild);
     })
 }
+// const calculationPlatform = document.querySelectorAll('#calculationPlatform button');
+// for(const button of calculationPlatform){
+//     button.addEventListener('click',function(){
+
+//     })
+// }
 
 
 // console.log(test.childNodes[5]);

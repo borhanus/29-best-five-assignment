@@ -2,7 +2,7 @@ document.getElementById('calulateBtn').addEventListener('click', function () {
     const selectedV = lengthOfParent('selectedV', 'li');
     const perPlayerField = getInputFieldValue('perPlayerField');
     const selectedVLength = lengthOfParent('selectedV', 'li');
-    
+
     if(isNaN(perPlayerField) || perPlayerField <= 0){
         alert('Please add valid input (NO: 0, -, abc)');
         return;
@@ -32,7 +32,7 @@ document.getElementById('calulateTotalBtn').addEventListener('click', function (
 
 const players = document.querySelectorAll('#playerBtn .border-2 .p-5');
 for (const player of players) {
-    player.childNodes[5].addEventListener('click', function () {
+    player.childNodes[5].addEventListener('click', function (event) {
         const selectVNoticeLength = lengthOfParent('selectedV', 'span');
         if (selectVNoticeLength === 1) {
             document.getElementById('selectNotice').remove();
@@ -48,48 +48,16 @@ for (const player of players) {
         const playerName = player.childNodes[1].innerText;
         newChild.innerText = playerName;
 
-        const selectedVChilds = document.querySelectorAll('#selectedV li');
-        for (const child of selectedVChilds) {
-            if (child.innerText === playerName) {
-                alert('Already Selected Player');
-                return;
-            }
-        }
+        // Disabled Alternative
+        // const selectedVChilds = document.querySelectorAll('#selectedV li');
+        // for (const child of selectedVChilds) {
+        //     if (child.innerText === playerName) {
+        //         alert('Already Selected Player');
+        //         return;
+        //     }
+        // }
+        event.target.setAttribute('disabled', false);
+        event.target.style.background = 'DimGray';
         selectedV.appendChild(newChild);
     })
 }
-// const calculationPlatform = document.querySelectorAll('#calculationPlatform button');
-// for(const button of calculationPlatform){
-//     button.addEventListener('click',function(){
-
-//     })
-// }
-
-
-// console.log(test.childNodes[5]);
-
-
-
-
-
-/*
-console.log(test);
-console.log('test');
-    const perPlayerField = getInputFieldValue('idName');
-    const playerExpenses = getElementInnerText('playerExpenses');
-    setInnerText('playerExpenses', playerExpenses);
-
-
-playerBtn
-selectedV
-perPlayerField
-calulateBtn
-playerExpenses
-managerField
-coachField
-calulateTotalBtn
-total
-
-
-
-*/
